@@ -1,0 +1,251 @@
+bias_imp: 0.5  best_acc1:86.29,  Param:514123.0,  Macs:86539306.0
+bias_imp: 0.5  best_acc1:87.66,  Param:357556.0,  Macs:66080992.0
+bias_imp: 0.5  best_acc1:90.03,  Param:327898.0,  Macs:57884863.0
+bias_imp: 0.1  best_acc1:90.66,  Param:375660.0,  Macs:75024513.0
+bias_imp: 0.1  best_acc1:92.59,  Param:390732.0,  Macs:73979265.0
+bias_imp: 0.1  best_acc1:92.37,  Param:393008.0,  Macs:77045463.0
+bias_imp: 0.01  best_acc1:93.68,  Param:560223.0,  Macs:85144373.0
+bias_imp: 0.01  best_acc1:93.32,  Param:597912.0,  Macs:75072832.0
+bias_imp: 0.01  best_acc1:93.63,  Param:573024.0,  Macs:81071658.0
+bias_imp: 0.0  best_acc1:93.84,  Param:555432.0,  Macs:84680128.0
+bias_imp: 0.0  best_acc1:93.78,  Param:575592.0,  Macs:80071360.0
+bias_imp: 0.0  best_acc1:93.92,  Param:540312.0,  Macs:89256640.0
+#importance = item.data.pow(2).cpu() * norm + torch.sign(bias) * bias.pow(2)*item.data.pow(2).cpu()
+bias_imp: 0.1  best_acc1:88.19,  Param:348234.0,  Macs:63016416.0
+bias_imp: 0.1  best_acc1:92.69,  Param:508297.0,  Macs:73716849.0
+bias_imp: 0.1  best_acc1:87.92,  Param:304783.0,  Macs:59875881.0
+#importance = item.data.pow(2).cpu() * norm * torch.sign(bias) * bias.pow(2)
+bias_imp: 0.1  best_acc1:87.93,  Param:436516.0,  Macs:76375791.0
+bias_imp: 0.1  best_acc1:92.04,  Param:391275.0,  Macs:56124 801.0
+bias_imp: 0.1  best_acc1:91.49,  Param:321078.0,  Macs:57846942.0
+#importance = item.data.pow(2).cpu() * norm * bias.pow(2)
+bias_imp: 0.1  best_acc1:93.82,  Param:522558.0,  Macs:84539529.0
+bias_imp: 0.1  best_acc1:93.82,  Param:542635.0,  Macs:82367157.0
+bias_imp: 0.1  best_acc1:93.4,  Param:577424.0,  Macs:74173994.0
+bias_imp: 0.1  best_acc1:93.46,  Param:536550.0,  Macs:87211999.0
+#importance = item.data.pow(2).cpu() * norm * torch.where(bias>0,bias,zero).pow(2)
+bias_imp: 0.1  best_acc1:88.34,  Param:97499.0,  Macs:24195351.0
+bias_imp: 0.1  best_acc1:92.29,  Param:301089.0,  Macs:64026128.0
+bias_imp: 0.1  best_acc1:88.75,  Param:99919.0,  Macs:31743361.0
+
+#zero = torch.ones_like(bias)*0.1
+#importance = item.data.pow(2).cpu() * norm * torch.where(bias>0.1,bias,zero).pow(2)
+bias_imp: 0.1  best_acc1:93.8,  Param:552120.0,  Macs:84267328.0
+bias_imp: 0.1  best_acc1:93.4,  Param:576312.0,  Macs:82050112.0
+bias_imp: 0.1  best_acc1:94.23,  Param:511224.0,  Macs:93335104.0
+
+#zero = torch.ones_like(bias)*-0.1
+#importance = item.data.pow(2).cpu() * norm * torch.where(bias>-0.1,bias,zero).pow(2)
+bias_imp: 0.1  best_acc1:93.5,  Param:572146.0,  Macs:78381226.0
+bias_imp: 0.1  best_acc1:93.79,  Param:552480.0,  Macs:82466143.0
+bias_imp: 0.1  best_acc1:93.41,  Param:541470.0,  Macs:78678729.0
+
+#importance = item.data.pow(2).cpu() * norm - torch.sign(bias) * bias.pow(2)
+imptype: 0  best_acc1:90.49,  Param:546245.0,  Macs:44700288.0
+imptype: 0  best_acc1:88.71,  Param:600302.0,  Macs:45326208.0
+imptype: 0  best_acc1:91.87,  Param:572634.0,  Macs:48351402.0
+
+#zero = torch.ones_like(bias)*-0.01
+#importance = item.data.pow(2).cpu() * norm * torch.where(bias>-0.01,bias,zero).pow(2)       
+imptype: 1  best_acc1:93.72,  Param:560565.0,  Macs:82842293.0
+imptype: 1  best_acc1:93.74,  Param:515211.0,  Macs:90370591.0
+imptype: 1  best_acc1:93.29,  Param:560567.0,  Macs:82946485.0
+
+#zero = torch.ones_like(bias)*0.01
+#importance = item.data.pow(2).cpu() * norm * torch.where(bias>0.01,bias,zero).pow(2)   
+imptype: 2  best_acc1:93.7,  Param:550104.0,  Macs:86653504.0
+imptype: 2  best_acc1:93.67,  Param:554136.0,  Macs:86582464.0
+imptype: 2  best_acc1:94.0,  Param:533976.0,  Macs:92086720.0
+
+#a = item.data.pow(2).cpu()*norm
+#b = torch.sign(bias) * bias.pow(2)
+#asum,bsum = sum(a),sum(b)
+#ratio = asum/bsum
+#importance = a + b*ratio*args.bias_importance
+imptype: 3 bias_importance: 1.0  best_acc1:93.45,  Param:427272.0,  Macs:77242168.0
+imptype: 3 bias_importance: 1.0  best_acc1:93.83,  Param:487824.0,  Macs:90634366.0
+imptype: 3 bias_importance: 1.0  best_acc1:93.43,  Param:535526.0,  Macs:79908244.0
+
+imptype: 3 bias_importance: 0.5  best_acc1:93.73,  Param:554850.0,  Macs:81068224.0
+imptype: 3 bias_importance: 0.5  best_acc1:93.65,  Param:524325.0,  Macs:78101769.0
+imptype: 3 bias_importance: 0.5  best_acc1:93.64,  Param:499374.0,  Macs:83849426.0
+
+imptype: 3 bias_importance: 0.1  best_acc1:94.03,  Param:543768.0,  Macs:89035840.0
+imptype: 3 bias_importance: 0.1  best_acc1:94.3,  Param:493008.0,  Macs:93865183.0
+imptype: 3 bias_importance: 0.1  best_acc1:94.07,  Param:546744.0,  Macs:85554474.0
+
+imptype: 3 bias_importance: 0.01  best_acc1:93.63,  Param:550932.0,  Macs:82650847.0
+imptype: 3 bias_importance: 0.01  best_acc1:93.74,  Param:579204.0,  Macs:79004021.0
+imptype: 3 bias_importance: 0.01  best_acc1:93.67,  Param:566088.0,  Macs:83197120.0
+#a = item.data.pow(2).cpu()*norm
+#b = torch.sign(bias)*bias.pow(2)
+#ratio = a/b
+#importance = a + b*ratio*args.bias_importance
+imptype: 4 bias_importance: 1.0  best_acc1:93.92,  Param:590424.0,  Macs:77603392.0
+imptype: 4 bias_importance: 1.0  best_acc1:93.72,  Param:585816.0,  Macs:80267584.0
+imptype: 4 bias_importance: 1.0  best_acc1:93.43,  Param:611389.0,  Macs:70737344.0
+
+imptype: 4 bias_importance: 0.1  best_acc1:93.21,  Param:607076.0,  Macs:73015104.0 
+imptype: 4 bias_importance: 0.1  best_acc1:93.75,  Param:573144.0,  Macs:84360640.0
+
+#a = item.data.pow(2).cpu()*norm
+#b = bias.pow(2)
+#asum,bsum = sum(a),sum(b)
+#ratio = asum/bsum
+#importance = a + torch.sign(bias)*bias.pow(2)*ratio*args.bias_importance      
+z`
+imptype: 5 bias_importance: 1.0  best_acc1:93.0,  Param:568308.0,  Macs:81061290.0
+imptype: 5 bias_importance: 1.0  best_acc1:93.14,  Param:587400.0,  Macs:77704768.0
+imptype: 5 bias_importance: 1.0  best_acc1:93.12,  Param:564063.0,  Macs:79340959.0
+
+imptype: 5 bias_importance: 0.5  best_acc1:93.27,  Param:556941.0,  Macs:78280713.0
+imptype: 5 bias_importance: 0.5  best_acc1:93.22,  Param:573144.0,  Macs:77165418.0
+
+imptype: 5 bias_importance: 0.1  best_acc1:93.88,  Param:568824.0,  Macs:83180992.0
+imptype: 5 bias_importance: 0.1  best_acc1:94.26,  Param:534840.0,  Macs:88953280.0
+imptype: 5 bias_importance: 0.1  best_acc1:93.98,  Param:559896.0,  Macs:85617472.0
+
+imptype: 6 bias_importance: 1.0  best_acc1:86.34,  Param:125057.0,  Macs:32807938.0
+imptype: 6 bias_importance: 0.5  best_acc1:87.17,  Param:205737.0,  Macs:47767523.0
+imptype: 6 bias_importance: 0.1  best_acc1:86.3,  Param:183849.0,  Macs:62364087.0
+imptype: 6 bias_importance: 0.0001  best_acc1:93.6,  Param:529908.0,  Macs:85554814.0 
+
+imptype: 7 bias_importance: 0.001  best_acc1:86.09,  Param:314916.0,  Macs:67480745.0 
+imptype: 7 bias_importance: 0.01  best_acc1:86.89,  Param:210563.0,  Macs:60988228.0 
+
+imptype: 8 bias_importance: 1.0  best_acc1:93.42,  Param:509256.0,  Macs:88306196.0 
+imptype: 9 bias_importance: 1.0  best_acc1:85.62,  Param:140483.0,  Macs:37359704.0 
+imptype: 10 bias_importance: 1.0  best_acc1:93.75,  Param:514347.0,  Macs:89945503.0 
+imptype: 11 bias_importance: 1.0  best_acc1:93.21,  Param:564395.0,  Macs:79821855.0 
+imptype: 12 bias_importance: 1.0  best_acc1:93.16,  Param:641688.0,  Macs:74104384.0 
+imptype: 13 bias_importance: 1.0  best_acc1:93.73,  Param:561312.0,  Macs:77069972.0 
+imptype: 14 bias_importance: 1.0  best_acc1:92.4,  Param:507692.0,  Macs:52116156.0 
+imptype: 15 bias_importance: 1.0  best_acc1:93.8,  Param:855770.0,  Macs:126841536.0 
+
+imptype: 16 bias_importance: 1.0  best epoch: 296 best_acc1:93.94,  Param:426843.0,  Macs:92388335.0 
+imptype: 16 bias_importance: 0.1  best epoch: 288 best_acc1:93.98,  Param:414288.0,  Macs:91127246.0 
+imptype: 16 bias_importance: 0.01  best epoch: 260 best_acc1:93.87,  Param:405096.0,  Macs:90510520.0 
+
+imptype: 17 bias_importance: 1.0  best epoch: 288 best_acc1:92.2,  Param:471911.0,  Macs:62412633.0 
+imptype: 17 bias_importance: 0.1  best epoch: 295 best_acc1:92.57,  Param:486978.0,  Macs:64283364.0 
+imptype: 17 bias_importance: 0.01  best epoch: 262 best_acc1:91.45,  Param:402992.0,  Macs:60402711.0 
+
+imptype: 18 bias_importance: 1.0  best epoch: 285 best_acc1:92.93,  Param:635528.0,  Macs:63444864.0 
+imptype: 16 bias_importance: 1.0  best epoch: 275 best_acc1:93.51,  Param:580213.0,  Macs:73659754.0 
+imptype: 16 bias_importance: 0.1  best epoch: 299 best_acc1:93.86,  Param:582103.0,  Macs:67265556.0 
+imptype: 19 bias_importance: 0.1  best epoch: 293 best_acc1:93.32,  Param:597022.0,  Macs:69803072.0 
+imptype: 16 bias_importance: 0.01  best epoch: 248 best_acc1:93.76,  Param:543373.0,  Macs:73680616.0 
+imptype: 19 bias_importance: 0.05  best epoch: 297 best_acc1:93.77,  Param:589874.0,  Macs:75530688.0 
+imptype: 19 bias_importance: 0.01  best epoch: 262 best_acc1:93.54,  Param:597018.0,  Macs:74207296.0
+ 
+imptype: 21 bias_importance: 0.1  best epoch: 48 best_acc1:86.43,  Param:453847.0,  Macs:55829531.0 
+imptype: 20 bias_importance: 1.0  best epoch: 271 best_acc1:94.29,  Param:527896.0,  Macs:88845632.0
+
+imptype: 20 bias_importance: 1.0  best epoch: 62 best_acc1:86.42,  Param:300338.0,  Macs:38676726.0 
+imptype: 20 bias_importance: 1.0  best epoch: 41 best_acc1:86.8,  Param:374761.0,  Macs:47903738.0 
+imptype: 20 bias_importance: 1.0  best epoch: 96 best_acc1:87.03,  Param:395955.0,  Macs:41441541.0 
+
+imptype: 21 bias_importance: 0.1  best epoch: 36 best_acc1:87.38,  Param:519435.0,  Macs:61168949.0 
+imptype: 21 bias_importance: 0.1  best epoch: 273 best_acc1:92.16,  Param:451306.0,  Macs:70615791.0 
+imptype: 21 bias_importance: 0.1  best epoch: 286 best_acc1:91.79,  Param:438768.0,  Macs:72728292.0
+
+
+imptype: 22 bias_importance: 1.0  best epoch: 288 best_acc1:93.92,  Param:482856.0,  Macs:85994044.0 
+imptype: 22 bias_importance: 1.0  best epoch: 289 best_acc1:93.78,  Param:483435.0,  Macs:82905137.0 
+imptype: 22 bias_importance: 1.0  best epoch: 299 best_acc1:94.02,  Param:475461.0,  Macs:86017073.0
+
+# Pruning Ratio : 30%
+imptype: 16 bias_importance: 0.01  best epoch: 260 best_acc1:93.87,  Param:405096.0,  Macs:90510520.0 
+imptype: 22 bias_importance: 1.0  best epoch: 256 best_acc1:94.28,  Param:465648.0,  Macs:91343932.0 
+
+# pruning ratio : 50%
+imptype: 16 bias_importance: 1.0  best epoch: 272 best_acc1:92.75,  Param:286961.0,  Macs:65404421.0 
+imptype: 16 bias_importance: 1.0  best epoch: 237 best_acc1:92.14,  Param:295151.0,  Macs:63241733.0 
+imptype: 16 bias_importance: 1.0  best epoch: 288 best_acc1:92.55,  Param:311324.0,  Macs:59202086.0 
+
+imptype: 22 bias_importance: 1.0  best epoch: 256 best_acc1:90.75,  Param:291542.0,  Macs:64486085.0 
+imptype: 22 bias_importance: 1.0  best epoch: 241 best_acc1:92.64,  Param:238893.0,  Macs:59217482.0 
+imptype: 22 bias_importance: 1.0  best epoch: 246 best_acc1:92.84,  Param:247568.0,  Macs:58487039.0 
+
+imptype: 23 bias_importance: 1.0  best epoch: 266 best_acc1:92.58,  Param:284974.0,  Macs:43253273.0 
+imptype: 23 bias_importance: 1.0  best epoch: 299 best_acc1:92.69,  Param:297218.0,  Macs:40006255.0 
+imptype: 23 bias_importance: 1.0  best epoch: 268 best_acc1:92.67,  Param:304229.0,  Macs:41091077.0 
+
+# resnet110
+imptype: 16 bias_importance: 1.0  best epoch: 278 best_acc1:94.87,  Param:960698.0,  Macs:187283975.0 
+
+imptype: 16 bias_importance: 1.0  best epoch: 285 best_acc1:92.26,  Param:276260.0,  Macs:66610916.0 
+
+imptype: 16 bias_importance: 1.0  best epoch: 281 best_acc1:93.65,  Param:426720.0,  Macs:90711396.0 
+imptype: 22 bias_importance: 1.0  best epoch: 298 best_acc1:92.12,  Param:304608.0,  Macs:43055844.0 
+imptype: 23 bias_importance: 1.0  best epoch: 247 best_acc1:93.21,  Param:302953.0,  Macs:40947962.0 
+
+imptype: 22 prune-rate:0.3, best epoch: 295 best_acc1:94.25,  Param:1189436.0,  Macs:170866368.0, test-name:resnet110-30%, date:202112011706 
+imptype: 23 prune-rate:0.3, best epoch: 263 best_acc1:94.37,  Param:1132652.0,  Macs:150091496.0, test-name:resnet110-30%, date:202112011706 
+
+imptype: 0 prune-rate:0.1, best epoch: 296 best_acc1:93.44,  Param:809608.0,  Macs:100099520.0, test-name:resnet56-10%, date:202112021157 
+imptype: 0 prune-rate:0.1, best epoch: 289 best_acc1:94.44,  Param:755032.0,  Macs:111432896.0, test-name:resnet56-60%, date:202112021923 
+imptype: 0 prune-rate:0.15, best epoch: 298 best_acc1:94.11,  Param:693864.0,  Macs:108867136.0, test-name:resnet56-80%, date:202112020938 
+imptype: 0 prune-rate:0.2, best epoch: 297 best_acc1:93.98,  Param:653576.0,  Macs:97401792.0, test-name:resnet56-60%, date:202112020711 
+imptype: 0 prune-rate:0.3, best epoch: 262 best_acc1:93.29,  Param:542604.0,  Macs:71374259.0, test-name:resnet56-80%, date:202112022146 
+imptype: 0 prune-rate:0.5, best epoch: 236 best_acc1:92.98,  Param:318626.0,  Macs:43966118.0, test-name:resnet56-10%, date:202112030003 
+imptype: 0 prune-rate:0.6, best epoch: 247 best_acc1:92.61,  Param:232222.0,  Macs:38231206.0, test-name:resnet56-60%, date:202112012125 
+imptype: 0 prune-rate:0.7, best epoch: 246 best_acc1:88.01,  Param:142828.0,  Macs:34136680.0, test-name:resnet56-10%, date:202112030221 
+imptype: 0 prune-rate:0.7, best epoch: 275 best_acc1:91.63,  Param:122824.0,  Macs:26648032.0, test-name:resnet56-70%, date:202112012126 
+imptype: 0 prune-rate:0.8, best epoch: 293 best_acc1:88.8,  Param:56735.0,  Macs:11988221.0, test-name:resnet56-80%, date:202112012355 
+
+imptype: 23 prune-rate:0.05, best epoch: 293 best_acc1:94.09,  Param:833480.0,  Macs:112670784.0, test-name:resnet56-5%, date:202112020227 
+imptype: 23 prune-rate:0.1, best epoch: 287 best_acc1:94.24,  Param:788440.0,  Macs:105791168.0, test-name:resnet56-10%, date:202112020225 
+imptype: 23 prune-rate:0.1, best epoch: 263 best_acc1:94.15,  Param:782248.0,  Macs:107091008.0, test-name:resnet56-20%, date:202112030007 
+imptype: 23 prune-rate:0.2, best epoch: 272 best_acc1:93.9,  Param:694259.0,  Macs:90008245.0, test-name:resnet56-20%, date:202112012356 
+imptype: 23 prune-rate:0.25, best epoch: 288 best_acc1:93.88,  Param:624100.0,  Macs:82183572.0, test-name:resnet110-30%, date:202112020711 
+imptype: 23 prune-rate:0.3, best epoch: 293 best_acc1:93.88,  Param:544623.0,  Macs:67433481.0, test-name:resnet56-70%, date:202112022148 
+imptype: 23 prune-rate:0.4, best epoch: 297 best_acc1:93.63,  Param:420045.0,  Macs:55629233.0, test-name:resnet56-70%, date:202112020940 
+imptype: 23 prune-rate:0.4, best epoch: 280 best_acc1:92.8,  Param:395019.0,  Macs:48456058.0, test-name:resnet56-20%, date:202112030227 
+imptype: 23 prune-rate:0.5, best epoch: 243 best_acc1:92.84,  Param:261206.0,  Macs:37634594.0, test-name:resnet110-30%, date:202112021923 
+imptype: 23 prune-rate:0.6, best epoch: 250 best_acc1:91.48,  Param:220714.0,  Macs:35608398.0, test-name:resnet56-20%, date:202112021200 
+
+
+### CHANGE
+
+imptype: 23 prune-rate:0.1, best epoch: 263 best_acc1:94.15,  Param:782248.0,  Macs:107091008.0, test-name:resnet56-20%, date:202112030007 
+imptype: 23 prune-rate:0.3, best epoch: 293 best_acc1:93.88,  Param:544623.0,  Macs:67433481.0, test-name:resnet56-70%, date:202112022148 
+imptype: 23 prune-rate:0.4, best epoch: 280 best_acc1:92.8,  Param:395019.0,  Macs:48456058.0, test-name:resnet56-20%, date:202112030227 
+imptype: 23 prune-rate:0.5, best epoch: 243 best_acc1:92.84,  Param:261206.0,  Macs:37634594.0, test-name:resnet110-30%, date:202112021923 
+
+imptype: 0 prune-rate:0.1, best epoch: 289 best_acc1:94.44,  Param:755032.0,  Macs:111432896.0, test-name:resnet56-60%, date:202112021923 
+imptype: 0 prune-rate:0.3, best epoch: 262 best_acc1:93.29,  Param:542604.0,  Macs:71374259.0, test-name:resnet56-80%, date:202112022146 
+imptype: 0 prune-rate:0.5, best epoch: 236 best_acc1:92.98,  Param:318626.0,  Macs:43966118.0, test-name:resnet56-10%, date:202112030003 
+imptype: 0 prune-rate:0.7, best epoch: 246 best_acc1:88.01,  Param:142828.0,  Macs:34136680.0, test-name:resnet56-10%, date:202112030221 
+imptype: 0 prune-rate:0.7, best epoch: 232 best_acc1:91.33,  Param:98527.0,  Macs:36360006.0, test-name:resnet110-30%, date:202112050847 
+imptype: 0 prune-rate:0.7, best epoch: 240 best_acc1:91.34,  Param:110105.0,  Macs:28648829.0, test-name:resnet56-70%, date:202112051343 
+
+
+imptype: 24 prune-rate:0.5, best epoch: 286 best_acc1:90.38,  Param:243908.0,  Macs:46941536.0, test-name:resnet56-20%, date:202112030448 
+imptype: 24 prune-rate:0.1, best epoch: 291 best_acc1:94.25,  Param:762768.0,  Macs:108180149.0, test-name:resnet56-20%, date:202112030458 
+imptype: 24 prune-rate:0.7, best epoch: 41 best_acc1:85.57,  Param:81575.0,  Macs:22002129.0, test-name:resnet56-20%, date:202112030718 
+imptype: 24 prune-rate:0.3, best epoch: 276 best_acc1:92.55,  Param:441409.0,  Macs:73391354.0, test-name:resnet56-20%, date:202112030727 
+
+imptype: 26 prune-rate:0.1, best epoch: 296 best_acc1:93.76,  Param:767510.0,  Macs:107666880.0, test-name:resnet110-30%, date:202112040823 
+imptype: 26 prune-rate:0.5, best epoch: 264 best_acc1:92.9,  Param:346959.0,  Macs:50403251.0, test-name:resnet110-30%, date:202112040823 
+imptype: 26 prune-rate:0.3, best epoch: 284 best_acc1:93.85,  Param:561214.0,  Macs:81610304.0, test-name:resnet56-70%, date:202112041318 
+imptype: 26 prune-rate:0.7, best epoch: 267 best_acc1:91.95,  Param:131783.0,  Macs:24026018.0, test-name:resnet56-70%, date:202112041319 
+imptype: 26 prune-rate:0.7, best epoch: 287 best_acc1:91.69,  Param:127883.0,  Macs:25875148.0, test-name:resnet56-70%, date:202112051336 
+imptype: 26 prune-rate:0.7, best epoch: 253 best_acc1:91.66,  Param:132912.0,  Macs:23252119.0, test-name:resnet110-30%, date:202112050843 imptype: 26 prune-rate:0.3, best epoch: 93 best_acc1:92.76,  Param:569832.0,  Macs:83438272.0, test-name:resnet110-30%, date:202112060222 
+
+imptype: 26 prune-rate:0.3, best epoch: 87 best_acc1:92.6,  Param:574052.0,  Macs:79463616.0, test-name:resnet110-30%, date:202112060222 
+
+imptype: 26 prune-rate:0.5, best epoch: 99 best_acc1:92.08,  Param:341051.0,  Macs:53578845.0, test-name:resnet56-70%, date:202112060311 
+imptype: 26 prune-rate:0.5, best epoch: 95 best_acc1:91.76,  Param:330891.0,  Macs:55556339.0, test-name:resnet56-70%, date:202112060311 
+
+imptype: 26 prune-rate:0.7, best epoch: 99 best_acc1:89.98,  Param:114277.0,  Macs:26254026.0, test-name:resnet56-70%, date:202112060401 
+imptype: 26 prune-rate:0.7, best epoch: 97 best_acc1:89.15,  Param:120824.0,  Macs:21692746.0, test-name:resnet56-70%, date:202112060402 
+
+imptype: 26 prune-rate:0.25, best epoch: 88 best_acc1:92.51,  Param:623128.0,  Macs:87230325.0, test-name:resnet110-30%, date:202112061001 
+imptype: 26 prune-rate:0.25, best epoch: 97 best_acc1:92.51,  Param:620437.0,  Macs:90184629.0, test-name:resnet110-30%, date:202112061001 
+
+imptype: 0 prune-rate:0.7, best epoch: 96 best_acc1:89.47,  Param:105473.0,  Macs:26433736.0, test-name:resnet110-30%, date:202112061115 
+imptype: 0 prune-rate:0.7, best epoch: 94 best_acc1:89.98,  Param:113037.0,  Macs:23885203.0, test-name:resnet110-30%, date:202112061116 
+imptype: 26 prune-rate:0.3, best epoch: 212 best_acc1:92.13,  Param:555504.0,  Macs:82329823.0, test-name:resnet110-30%, date:202112280102 
+imptype: 26 prune-rate:0.3, best epoch: 244 best_acc1:92.44,  Param:564636.0,  Macs:80454570.0, test-name:resnet110-30%, date:202112280102 
+imptype: 26 prune-rate:0.3, best epoch: 163 best_acc1:92.21,  Param:589272.0,  Macs:79031104.0, test-name:resnet110-30%, date:202112280556 
