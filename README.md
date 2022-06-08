@@ -1,4 +1,7 @@
-# CoBaL Base Code
+# Bias-Based-Pruning
+###  배치 정규화의 편향 매개변수를 고려한 딥러닝 모델 가지치기 기법 
+[2021 IPIU](https://drive.google.com/drive/folders/1UZ6mj-I0F1_5FYEDisoeUlVoldTOl7nm?usp=sharing)
+
 
 You can train or test ResNet/MobileNet on CIFAR10/CIFAR100/ImageNet.  
 Specially, you can train or test on any device (CPU/sinlge GPU/multi GPU) and different device environment available.
